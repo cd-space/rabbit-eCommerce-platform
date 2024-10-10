@@ -27,6 +27,7 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
+        //自动导入scss样式文件
         additionalData: 
         `@use "@/styles/element/index.scss" as *;
         @use "@/styles/var.scss" as *;
