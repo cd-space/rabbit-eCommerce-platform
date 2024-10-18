@@ -1,4 +1,4 @@
-import htttpInstance from "@/utils/http";
+import httpInstance from "@/utils/http";
 
 
 
