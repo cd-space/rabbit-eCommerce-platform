@@ -22,7 +22,9 @@ onMounted(()=>categoryStore.getCategory())
 
 
         <!-- 二级路由出口 -->
-         <router-view/>
+         <!-- 添加key破坏复用机制强制销毁重建 -->
+         <!-- <router-view :key="$route.fullPath"/> -->
+         <router-view />
          <LayoutFooter />
     </div>
 </template>
