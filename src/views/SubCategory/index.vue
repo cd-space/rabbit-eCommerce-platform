@@ -17,19 +17,26 @@ onMounted(()=>{
 
 //获取基础列表数据渲染
 const goodList =ref([])
-const repData=ref({
+const reqData=ref({
     categoryId:route.params.id,
     page:1,
     pageSize:20,
     sortfield:'publishTime'
 })
 const getGoodList=async()=>{
-   const res= await getSubCategoryAPI(repData.value)
+   const res= await getSubCategoryAPI(reqData.value)
    goodList.value=res.result.items
 }
 onMounted(()=>{
     getGoodList()
 })
+
+//tab切换回调
+const tabChange=()=>{
+  console.log('tab')
+  reqData.value.page=1
+  getGoodList()
+}
 </script>
 
 <template>
@@ -44,7 +51,7 @@ onMounted(()=>{
       </el-breadcrumb>
     </div>
     <div class="sub-container">
-      <el-tabs>
+      <el-tabs v-model="reqData.sortfield" @tab-change="tabChange">
         <el-tab-pane label="最新商品" name="publishTime"></el-tab-pane>
         <el-tab-pane label="最高人气" name="orderNum"></el-tab-pane>
         <el-tab-pane label="评论最多" name="evaluateNum"></el-tab-pane>

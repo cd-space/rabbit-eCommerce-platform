@@ -22,7 +22,7 @@ export function useCategory() {
     // console.log('路由变化了')
     //存在问题：使用最新的路由参数请求最新的分类数据，getCatagory()存在滞后性
     getCatagory(to.params.id);
-    console.log(to);
+    // console.log(to);
   });
 
   return {
